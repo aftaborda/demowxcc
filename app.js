@@ -140,6 +140,8 @@ if (!loginForm) {
     // Coloca aqui dentro todas as funções .on que precisares
     window.imichatwidget.on("imichat-widget:ready", function () {
       console.log("O widget está pronto!");
+      window.imichatwidget.show();
+
     });
     window.imichatwidget.on("widget-opened", function () {
       console.log("O utilizador abriu a janela de chat!");
