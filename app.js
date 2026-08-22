@@ -136,15 +136,23 @@ if (!loginForm) {
     }
   }, 100); // Executa a verificação a cada 100 milissegundos
 
+  function updateChatWidget() {
+    console.log("[Custom Integration] O widget está pronto!");
+    const data = '{"custom_chat_fields": {"Load ID": "123456789"}}';
+    window.imichatwidget.update(data, function (response) {
+      console.log(
+        `[Custom Integration] User id: ${user.id}, Resposta do widget update: ${JSON.stringify(response)}`,
+      );
+      window.imichatwidget.show();
+    });
+  }
+
   function initializeChatListeners() {
     // Coloca aqui dentro todas as funções .on que precisares
     window.imichatwidget.on("imichat-widget:ready", function () {
-      console.log("O widget está pronto!");
+      console.log("[Custom Integration] O widget está pronto!");
+      updateChatWidget();
       window.imichatwidget.hide();
-
-    });
-    window.imichatwidget.on("widget-opened", function () {
-      console.log("O utilizador abriu a janela de chat!");
     });
   }
 })();
