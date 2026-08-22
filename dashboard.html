@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portal IT | Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="app-page">
+
+  <header class="topbar">
+    <a href="dashboard.html" class="logo">
+      <span class="logo-icon">IT</span>
+      <span>Portal IT</span>
+    </a>
+
+    <div class="user-area">
+      <div class="user-info">
+        <span class="user-name" id="userName"></span>
+        <span class="user-id" id="userIdDisplay"></span>
+      </div>
+
+      <button class="logout-btn" onclick="logout()">
+        Logout
+      </button>
+    </div>
+  </header>
+
+  <div class="app-layout">
+
+    <aside class="sidebar">
+      <nav>
+        <a href="dashboard.html" class="nav-link active">
+          <span>▦</span> Dashboard
+        </a>
+        <a href="systems.html" class="nav-link">
+          <span>◈</span> Systems
+        </a>
+        <a href="reports.html" class="nav-link">
+          <span>▤</span> Reports
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <span class="status-dot"></span>
+        All services operational
+      </div>
+    </aside>
+
+    <main class="content">
+
+      <div class="page-header">
+        <div>
+          <span class="eyebrow">DASHBOARD</span>
+          <h1>Welcome back, <span id="welcomeName"></span>.</h1>
+          <p>
+            Here is an overview of your IT environment.
+          </p>
+        </div>
+
+        <div class="date-box">
+          <span>LAST UPDATED</span>
+          <strong>Today, 09:42</strong>
+        </div>
+      </div>
+
+      <section class="stats-grid">
+        <article class="stat-card">
+          <span class="stat-label">Systems Online</span>
+          <strong>24</strong>
+          <small class="positive">↑ 2.4% from last week</small>
+        </article>
+
+        <article class="stat-card">
+          <span class="stat-label">Active Users</span>
+          <strong>1,284</strong>
+          <small class="positive">↑ 8.2% this month</small>
+        </article>
+
+        <article class="stat-card">
+          <span class="stat-label">Open Incidents</span>
+          <strong>3</strong>
+          <small class="neutral">Requires attention</small>
+        </article>
+
+        <article class="stat-card">
+          <span class="stat-label">Platform Availability</span>
+          <strong>99.98%</strong>
+          <small class="positive">All core services healthy</small>
+        </article>
+      </section>
+
+      <section class="section">
+        <div class="section-heading">
+          <div>
+            <h2>Quick access</h2>
+            <p>Explore your IT environment and performance data.</p>
+          </div>
+        </div>
+
+        <div class="quick-grid">
+
+          <a href="systems.html" class="quick-card">
+            <div class="quick-icon">◈</div>
+            <div>
+              <h3>Systems Overview</h3>
+              <p>
+                Monitor infrastructure, services and operational status.
+              </p>
+              <span>View systems →</span>
+            </div>
+          </a>
+
+          <a href="reports.html" class="quick-card">
+            <div class="quick-icon">▤</div>
+            <div>
+              <h3>Reports & Analytics</h3>
+              <p>
+                Review key metrics, trends and business insights.
+              </p>
+              <span>View reports →</span>
+            </div>
+          </a>
+
+        </div>
+      </section>
+
+      <section class="section activity-section">
+        <div class="section-heading">
+          <div>
+            <h2>Recent activity</h2>
+            <p>Latest events across the platform.</p>
+          </div>
+        </div>
+
+        <div class="activity-list">
+          <div class="activity-item">
+            <span class="activity-dot success"></span>
+            <div>
+              <strong>Infrastructure health check completed</strong>
+              <p>All primary systems are operating normally.</p>
+            </div>
+            <time>09:42</time>
+          </div>
+
+          <div class="activity-item">
+            <span class="activity-dot info"></span>
+            <div>
+              <strong>Weekly analytics report generated</strong>
+              <p>New performance insights are now available.</p>
+            </div>
+            <time>08:15</time>
+          </div>
+
+          <div class="activity-item">
+            <span class="activity-dot warning"></span>
+            <div>
+              <strong>Scheduled maintenance planned</strong>
+              <p>Network services will be reviewed this weekend.</p>
+            </div>
+            <time>Yesterday</time>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

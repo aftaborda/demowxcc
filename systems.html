@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portal IT | Systems</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="app-page">
+
+  <header class="topbar">
+    <a href="dashboard.html" class="logo">
+      <span class="logo-icon">IT</span>
+      <span>Portal IT</span>
+    </a>
+
+    <div class="user-area">
+      <div class="user-info">
+        <span class="user-name" id="userName"></span>
+        <span class="user-id" id="userIdDisplay"></span>
+      </div>
+
+      <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
+  </header>
+
+  <div class="app-layout">
+
+    <aside class="sidebar">
+      <nav>
+        <a href="dashboard.html" class="nav-link">
+          <span>▦</span> Dashboard
+        </a>
+        <a href="systems.html" class="nav-link active">
+          <span>◈</span> Systems
+        </a>
+        <a href="reports.html" class="nav-link">
+          <span>▤</span> Reports
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <span class="status-dot"></span>
+        All services operational
+      </div>
+    </aside>
+
+    <main class="content">
+
+      <div class="page-header">
+        <div>
+          <span class="eyebrow">INFRASTRUCTURE</span>
+          <h1>Systems Overview</h1>
+          <p>
+            Monitor the current status and performance of core services.
+          </p>
+        </div>
+      </div>
+
+      <section class="system-summary">
+        <div class="health-card">
+          <div>
+            <span class="eyebrow">OVERALL STATUS</span>
+            <h2>All systems operational</h2>
+            <p>No critical incidents detected.</p>
+          </div>
+
+          <div class="health-score">
+            <strong>98</strong>
+            <span>Health Score</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-heading">
+          <div>
+            <h2>Core services</h2>
+            <p>Live status of the main platform components.</p>
+          </div>
+        </div>
+
+        <div class="systems-table">
+
+          <div class="system-row table-header">
+            <span>Service</span>
+            <span>Status</span>
+            <span>Availability</span>
+            <span>Last Check</span>
+          </div>
+
+          <div class="system-row">
+            <strong>Authentication Service</strong>
+            <span><span class="badge operational">Operational</span></span>
+            <span>99.99%</span>
+            <span>2 minutes ago</span>
+          </div>
+
+          <div class="system-row">
+            <strong>Core API Gateway</strong>
+            <span><span class="badge operational">Operational</span></span>
+            <span>99.98%</span>
+            <span>1 minute ago</span>
+          </div>
+
+          <div class="system-row">
+            <strong>Data Processing Engine</strong>
+            <span><span class="badge operational">Operational</span></span>
+            <span>99.95%</span>
+            <span>3 minutes ago</span>
+          </div>
+
+          <div class="system-row">
+            <strong>Reporting Platform</strong>
+            <span><span class="badge maintenance">Maintenance</span></span>
+            <span>99.72%</span>
+            <span>5 minutes ago</span>
+          </div>
+
+          <div class="system-row">
+            <strong>Notification Service</strong>
+            <span><span class="badge operational">Operational</span></span>
+            <span>99.99%</span>
+            <span>Just now</span>
+          </div>
+
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-heading">
+          <div>
+            <h2>Infrastructure metrics</h2>
+            <p>Current resource utilization.</p>
+          </div>
+        </div>
+
+        <div class="metrics-grid">
+
+          <article class="metric-card">
+            <div class="metric-top">
+              <span>CPU Usage</span>
+              <strong>42%</strong>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 42%"></div>
+            </div>
+          </article>
+
+          <article class="metric-card">
+            <div class="metric-top">
+              <span>Memory Usage</span>
+              <strong>67%</strong>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 67%"></div>
+            </div>
+          </article>
+
+          <article class="metric-card">
+            <div class="metric-top">
+              <span>Storage Usage</span>
+              <strong>54%</strong>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 54%"></div>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
