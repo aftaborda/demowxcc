@@ -142,10 +142,7 @@ if (!loginForm) {
     if (!user) return;
 
     console.log(`[Custom Integration] update widget for user ${user.id}`);
-    //const data = `{"custom_chat_fields": {"Load ID": "123456789", "customerId": ${user.id}}}`;
-    const data = {
-      custom_chat_fields: { "Load ID": "123456789", customerId: user.id },
-    };
+    const data = `{"custom_chat_fields": {"Load ID": "123456789", "customer": ${user}, "customerId": ${user.id}}}`;
     window.imichatwidget.update(data, function (response) {
       console.log(
         `[Custom Integration] User id: ${user.id}, Resposta do widget update: ${JSON.stringify(response)}`,
