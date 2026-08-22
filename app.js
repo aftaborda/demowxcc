@@ -1,19 +1,47 @@
 const users = {
+  "1000": {
+    id: "1000",
+    name: "Joaquim Santos"
+  },
   "1001": {
     id: "1001",
-    name: "John Smith"
+    name: "Genoveva Pascoal"
   },
   "1002": {
     id: "1002",
-    name: "Emma Johnson"
+    name: "Hermenegildo Balsemão"
   },
   "1003": {
     id: "1003",
-    name: "Michael Brown"
+    name: "Teotónio Pires-Veloso"
   },
   "1004": {
     id: "1004",
-    name: "Sarah Williams"
+    name: "Eulália Quaresma"
+  },
+  "1005": {
+    id: "1005",
+    name: "Zulmira Labareda"
+  },
+  "1006": {
+    id: "1006",
+    name: "Floripes Incarnação"
+  },
+  "1007": {
+    id: "1007",
+    name: "Custódio Melancia"
+  },
+  "1008": {
+    id: "1008",
+    name: "Anacleto Riba-Tua"
+  },
+  "1009": {
+    id: "1009",
+    name: "Olegário Boavida"
+  },
+  "1010": {
+    id: "1010",
+    name: "Sidónia Castanheira"
   }
 };
 
