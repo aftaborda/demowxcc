@@ -104,6 +104,9 @@ function displayUser() {
   const welcomeName =
     document.getElementById("welcomeName");
 
+  const chatButton =
+    document.getElementById("imi-chatbutton");
+
   userNameElements.forEach(function (element) {
     element.textContent = user.name;
   });
@@ -116,6 +119,11 @@ function displayUser() {
     welcomeName.textContent =
       user.name.split(" ")[0];
   }
+
+  if (chatButton && user.id === "1000") {
+    chatButton.style.display = "None";
+  }
+  
 }
 
 function logout() {
