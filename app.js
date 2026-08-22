@@ -1,48 +1,48 @@
 const users = {
-  "1000": {
+  1000: {
     id: "1000",
-    name: "Joaquim Santos"
+    name: "Joaquim Santos",
   },
-  "1001": {
+  1001: {
     id: "1001",
-    name: "Genoveva Pascoal"
+    name: "Genoveva Pascoal",
   },
-  "1002": {
+  1002: {
     id: "1002",
-    name: "Hermenegildo Balsemão"
+    name: "Hermenegildo Balsemão",
   },
-  "1003": {
+  1003: {
     id: "1003",
-    name: "Teotónio Pires-Veloso"
+    name: "Teotónio Pires-Veloso",
   },
-  "1004": {
+  1004: {
     id: "1004",
-    name: "Eulália Quaresma"
+    name: "Eulália Quaresma",
   },
-  "1005": {
+  1005: {
     id: "1005",
-    name: "Zulmira Labareda"
+    name: "Zulmira Labareda",
   },
-  "1006": {
+  1006: {
     id: "1006",
-    name: "Floripes Incarnação"
+    name: "Floripes Incarnação",
   },
-  "1007": {
+  1007: {
     id: "1007",
-    name: "Custódio Melancia"
+    name: "Custódio Melancia",
   },
-  "1008": {
+  1008: {
     id: "1008",
-    name: "Anacleto Riba-Tua"
+    name: "Anacleto Riba-Tua",
   },
-  "1009": {
+  1009: {
     id: "1009",
-    name: "Olegário Boavida"
+    name: "Olegário Boavida",
   },
-  "1010": {
+  1010: {
     id: "1010",
-    name: "Sidónia Castanheira"
-  }
+    name: "Sidónia Castanheira",
+  },
 };
 
 const loginForm = document.getElementById("loginForm");
@@ -51,23 +51,16 @@ if (loginForm) {
   loginForm.addEventListener("submit", function (event) {
     event.preventDefault();
 
-    const userId = document
-      .getElementById("userId")
-      .value
-      .trim();
+    const userId = document.getElementById("userId").value.trim();
 
     const errorMessage = document.getElementById("loginError");
 
     if (users[userId]) {
-      sessionStorage.setItem(
-        "portalITUser",
-        JSON.stringify(users[userId])
-      );
+      sessionStorage.setItem("portalITUser", JSON.stringify(users[userId]));
 
       window.location.href = "dashboard.html";
     } else {
-      errorMessage.textContent =
-        "Invalid Employee ID. Please try again.";
+      errorMessage.textContent = "Invalid Employee ID. Please try again.";
     }
   });
 }
@@ -95,17 +88,11 @@ function displayUser() {
 
   if (!user) return;
 
-  const userNameElements =
-    document.querySelectorAll("#userName");
+  const userNameElements = document.querySelectorAll("#userName");
 
-  const userIdElements =
-    document.querySelectorAll("#userIdDisplay");
+  const userIdElements = document.querySelectorAll("#userIdDisplay");
 
-  const welcomeName =
-    document.getElementById("welcomeName");
-
-  const chatButton =
-    document.getElementById("imi-chatbutton");
+  const welcomeName = document.getElementById("welcomeName");
 
   userNameElements.forEach(function (element) {
     element.textContent = user.name;
@@ -116,14 +103,8 @@ function displayUser() {
   });
 
   if (welcomeName) {
-    welcomeName.textContent =
-      user.name.split(" ")[0];
+    welcomeName.textContent = user.name.split(" ")[0];
   }
-
-  if (chatButton && user.id === "1000") {
-    chatButton.style.display = "None";
-  }
-  
 }
 
 function logout() {
@@ -134,3 +115,34 @@ function logout() {
 if (!loginForm) {
   displayUser();
 }
+
+(function () {
+  let attempts = 0;
+  const maxAttempts = 50;
+
+  const checkWidget = setInterval(() => {
+    attempts++;
+
+    if (window.imichatwidget && typeof window.imichatwidget.on === "function") {
+      clearInterval(checkWidget);
+      console.log("[Custom Integration] Webex Widget detetado com sucesso!");
+
+      initializeChatListeners();
+    } else if (attempts >= maxAttempts) {
+      clearInterval(checkWidget);
+      console.warn(
+        "[Custom Integration] O widget do Webex demorou demasiado tempo a carregar.",
+      );
+    }
+  }, 100); // Executa a verificação a cada 100 milissegundos
+
+  function initializeChatListeners() {
+    // Coloca aqui dentro todas as funções .on que precisares
+    window.imichatwidget.on("imichat-widget:ready", function () {
+      console.log("O widget está pronto!");
+    });
+    window.imichatwidget.on("widget-opened", function () {
+      console.log("O utilizador abriu a janela de chat!");
+    });
+  }
+})();
