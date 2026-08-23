@@ -88,7 +88,9 @@ function loadUser() {
 }
 
 function getShowWidget() {
-  return sessionStorage.getItem("showWidget") === true;
+  const show = !!sessionStorage.getItem("showWidget");
+  console.log(`[Custom Integration] getShowWidget() returns ${show}`);
+  return show;
 }
 
 function setShowWidget(value) {
