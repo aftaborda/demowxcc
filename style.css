@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
 
 :root {
   --primary: #2563eb;
@@ -111,6 +111,26 @@ form {
   margin-top: 32px;
 }
 
+.form-row {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.form-row label {
+  margin-bottom: 0;
+  min-width: 130px;
+}
+
+.form-row input[type="text"] {
+  flex: 1;
+}
+
+.form-row input[type="checkbox"] {
+  width: auto;
+}
+
 label {
   display: block;
   font-size: 14px;
@@ -181,7 +201,11 @@ input:focus {
 
 .login-visual {
   background:
-    radial-gradient(circle at top right, rgba(59, 130, 246, 0.35), transparent 35%),
+    radial-gradient(
+      circle at top right,
+      rgba(59, 130, 246, 0.35),
+      transparent 35%
+    ),
     linear-gradient(135deg, #111827, #172554);
   color: white;
   padding: 60px;
