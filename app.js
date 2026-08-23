@@ -92,9 +92,11 @@ function getShowWidget() {
 }
 
 function setShowWidget(value) {
+  console.log(`[Custom Integration] setShowWidget(${value})`);
   const show = !!value;
   sessionStorage.setItem("showWidget", show);
   if (chatWidget) {
+    console.log(`[Custom Integration] Show widget? ${show}`);
     if (show) chatWidget.show();
     else chatWidget.hide();
   }
@@ -168,7 +170,7 @@ if (!loginForm) {
     if (!user) return;
 
     console.log(`[Custom Integration] update widget for user ${user.id}`);
-    const data = `{"custom_chat_fields": {"Load ID": "123456789", "customerName": "${user.name}", "customerId": "${user.id}"}}`;
+    const data = `{"custom_chat_fields": {"customerName": "${user.name}", "customerId": "${user.id}"}}`;
     window.imichatwidget.update(data, function (response) {
       console.log(
         `[Custom Integration] User id: ${user.id}, Resposta do widget update: ${JSON.stringify(response)}`,
