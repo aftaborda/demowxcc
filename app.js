@@ -153,7 +153,6 @@ if (!loginForm) {
       console.log("[Custom Integration] Webex Widget detetado com sucesso!");
       chatWidget = window.imichatwidget;
       initializeChatListeners();
-      setShowWidget(getShowWidget());
     } else if (attempts >= maxAttempts) {
       clearInterval(checkWidget);
       console.warn(
@@ -173,6 +172,7 @@ if (!loginForm) {
       console.log(
         `[Custom Integration] User id: ${user.id}, Resposta do widget update: ${JSON.stringify(response)}`,
       );
+      setShowWidget(getShowWidget());
     });
   }
 
