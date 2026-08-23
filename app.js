@@ -92,7 +92,12 @@ function getShowWidget() {
 }
 
 function setShowWidget(value) {
-  sessionStorage.setItem("showWidget", value === true);
+  const show = !!value;
+  sessionStorage.setItem("showWidget", show);
+  if (chatWidget) {
+    if (show) chatWidget.show();
+    else chatWidget.hide();
+  }
 }
 
 function displayUser() {
@@ -125,16 +130,10 @@ function logout() {
 }
 
 function showWidget() {
-  if (chatWidget) {
-    chatWidget.show();
-  }
   setShowWidget(true);
 }
 
 function hideWidget() {
-  if (chatWidget) {
-    chatWidget.hide();
-  }
   setShowWidget(false);
 }
 
@@ -154,6 +153,7 @@ if (!loginForm) {
       console.log("[Custom Integration] Webex Widget detetado com sucesso!");
       chatWidget = window.imichatwidget;
       initializeChatListeners();
+      setShowWidget(getShowWidget());
     } else if (attempts >= maxAttempts) {
       clearInterval(checkWidget);
       console.warn(
@@ -180,11 +180,6 @@ if (!loginForm) {
     window.imichatwidget.on("imichat-widget:ready", function () {
       console.log("[Custom Integration] O widget está pronto!");
       updateChatWidget();
-      if (getShowWidget()) {
-        window.imichatwidget.show();
-      } else {
-        window.imichatwidget.hide();
-      }
     });
   }
 })();
