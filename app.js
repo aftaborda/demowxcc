@@ -147,8 +147,8 @@ if (!loginForm) {
       console.log(
         `[Custom Integration] User id: ${user.id}, Resposta do widget update: ${JSON.stringify(response)}`,
       );
-      window.imichatwidget.show();
     });
+    window.imichatwidget.show();
   }
 
   function initializeChatListeners() {
