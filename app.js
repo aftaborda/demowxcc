@@ -1,3 +1,4 @@
+let chatWidget = null;
 const users = {
   1000: {
     id: "1000",
@@ -52,11 +53,14 @@ if (loginForm) {
     event.preventDefault();
 
     const userId = document.getElementById("userId").value.trim();
+    const showWidget = document.getElementById("show-widget");
 
     const errorMessage = document.getElementById("loginError");
 
     if (users[userId]) {
       sessionStorage.setItem("portalITUser", JSON.stringify(users[userId]));
+
+      sessionStorage.setItem("showWidget", showWidget.checked);
 
       window.location.href = "dashboard.html";
     } else {
@@ -81,6 +85,14 @@ function loadUser() {
   }
 
   return JSON.parse(storedUser);
+}
+
+function getShowWidget() {
+  return sessionStorage.getItem("showWidget") === true;
+}
+
+function setShowWidget(value) {
+  sessionStorage.setItem("showWidget", value === true);
 }
 
 function displayUser() {
@@ -112,6 +124,20 @@ function logout() {
   window.location.href = "index.html";
 }
 
+function showWidget() {
+  if (chatWidget) {
+    chatWidget.show();
+  }
+  setShowWidget(true);
+}
+
+function hideWidget() {
+  if (chatWidget) {
+    chatWidget.hide();
+  }
+  setShowWidget(false);
+}
+
 if (!loginForm) {
   displayUser();
 }
@@ -126,7 +152,7 @@ if (!loginForm) {
     if (window.imichatwidget && typeof window.imichatwidget.on === "function") {
       clearInterval(checkWidget);
       console.log("[Custom Integration] Webex Widget detetado com sucesso!");
-
+      chatWidget = window.imichatwidget;
       initializeChatListeners();
     } else if (attempts >= maxAttempts) {
       clearInterval(checkWidget);
@@ -147,15 +173,18 @@ if (!loginForm) {
       console.log(
         `[Custom Integration] User id: ${user.id}, Resposta do widget update: ${JSON.stringify(response)}`,
       );
+      if (getShowWidget()) {
+        window.imichatwidget.show();
+      } else {
+        window.imichatwidget.hide();
+      }
     });
-    window.imichatwidget.show();
   }
 
   function initializeChatListeners() {
     window.imichatwidget.on("imichat-widget:ready", function () {
       console.log("[Custom Integration] O widget está pronto!");
       updateChatWidget();
-      window.imichatwidget.hide();
     });
   }
 })();
