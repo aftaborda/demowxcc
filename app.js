@@ -163,6 +163,7 @@ if (!loginForm) {
 
   function updateChatWidget() {
     const user = loadUser();
+    const show = getShowWidget();
 
     if (!user) return;
 
@@ -172,7 +173,7 @@ if (!loginForm) {
       console.log(
         `[Custom Integration] User id: ${user.id}, Resposta do widget update: ${JSON.stringify(response)}`,
       );
-      setShowWidget(getShowWidget());
+      setShowWidget(show);
     });
   }
 
