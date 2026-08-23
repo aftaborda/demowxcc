@@ -173,11 +173,6 @@ if (!loginForm) {
       console.log(
         `[Custom Integration] User id: ${user.id}, Resposta do widget update: ${JSON.stringify(response)}`,
       );
-      if (getShowWidget()) {
-        window.imichatwidget.show();
-      } else {
-        window.imichatwidget.hide();
-      }
     });
   }
 
@@ -185,6 +180,11 @@ if (!loginForm) {
     window.imichatwidget.on("imichat-widget:ready", function () {
       console.log("[Custom Integration] O widget está pronto!");
       updateChatWidget();
+      if (getShowWidget()) {
+        window.imichatwidget.show();
+      } else {
+        window.imichatwidget.hide();
+      }
     });
   }
 })();
