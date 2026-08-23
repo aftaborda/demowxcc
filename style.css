@@ -297,6 +297,34 @@ input:focus {
   background: #f3f4f6;
 }
 
+.show-widget-btn {
+  background: #d8fdda;
+  border: 1px solid var(--border);
+  padding: 9px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 600;
+}
+
+.show-widget-btn:hover {
+  background: #d8fdda6a;
+}
+
+.hide-widget-btn {
+  background: #ffcbcb;
+  border: 1px solid var(--border);
+  padding: 9px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 600;
+}
+
+.hide-widget-btn:hover {
+  background: #ffcbcb7e;
+}
+
 .app-layout {
   display: flex;
   min-height: calc(100vh - 72px);
