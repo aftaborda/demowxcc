@@ -3,46 +3,57 @@ const users = {
   1000: {
     id: "1000",
     name: "Joaquim Santos",
+    email: "joaquim.santos@mail.local",
   },
   1001: {
     id: "1001",
     name: "Genoveva Pascoal",
+    email: "genoveva.p@mail.local",
   },
   1002: {
     id: "1002",
     name: "Hermenegildo Balsemão",
+    email: "hermenegildo.b@mail.local",
   },
   1003: {
     id: "1003",
     name: "Teotónio Pires-Veloso",
+    email: "teotonio.pv@mail.local",
   },
   1004: {
     id: "1004",
     name: "Eulália Quaresma",
+    email: "eulalia.q@mail.local",
   },
   1005: {
     id: "1005",
     name: "Zulmira Labareda",
+    email: "zulmira.l@mail.local",
   },
   1006: {
     id: "1006",
     name: "Floripes Incarnação",
+    email: "floripes.i@mail.local",
   },
   1007: {
     id: "1007",
     name: "Custódio Melancia",
+    email: "custodio.m@mail.local",
   },
   1008: {
     id: "1008",
     name: "Anacleto Riba-Tua",
+    email: "anacleto.r@mail.local",
   },
   1009: {
     id: "1009",
     name: "Olegário Boavida",
+    email: "olegario.b@mail.local",
   },
   1010: {
     id: "1010",
     name: "Sidónia Castanheira",
+    email: "sidonia.c@mail.local",
   },
 };
 
@@ -181,7 +192,7 @@ if (!loginForm) {
     if (!user) return;
 
     console.log(`[Custom Integration] update widget for user ${user.id}`);
-    const data = `{"custom_chat_fields": {"customerName": "${user.name}", "customerId": "${user.id}"}}`;
+    const data = `{"custom_chat_fields": {"customerName": "${user.name}", "customerEmail": "${user.mail}", "customerId": "${user.id}"}}`;
     window.imichatwidget.update(data, function (response) {
       console.log(
         `[Custom Integration] User id: ${user.id}, Resposta do widget update: ${JSON.stringify(response)}`,
