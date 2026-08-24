@@ -58,9 +58,14 @@ if (loginForm) {
     const errorMessage = document.getElementById("loginError");
 
     if (users[userId]) {
+      const show = !!showWidget.checked;
+      users[userId].show = show;
       sessionStorage.setItem("portalITUser", JSON.stringify(users[userId]));
 
-      sessionStorage.setItem("showWidget", showWidget.checked);
+      console.log(`[Login form submit] Mostrar o widget? ${show}`);
+      sessionStorage.setItem("showWidget", show);
+
+      getShowWidget();
 
       window.location.href = "dashboard.html";
     } else {
