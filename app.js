@@ -63,7 +63,7 @@ if (loginForm) {
       sessionStorage.setItem("portalITUser", JSON.stringify(users[userId]));
 
       console.log(`[Login form submit] Mostrar o widget? ${show}`);
-      sessionStorage.setItem("showWidget", show);
+      //sessionStorage.setItem("showWidget", show);
 
       getShowWidget();
 
@@ -93,7 +93,8 @@ function loadUser() {
 }
 
 function getShowWidget() {
-  const show = !!sessionStorage.getItem("showWidget");
+  const user = loadUser();
+  const show = !!user.show;
   console.log(`[Custom Integration] getShowWidget() returns ${show}`);
   return show;
 }
@@ -101,7 +102,10 @@ function getShowWidget() {
 function setShowWidget(value) {
   console.log(`[Custom Integration] setShowWidget(${value})`);
   const show = !!value;
-  sessionStorage.setItem("showWidget", show);
+  const user = loadUser();
+  user.show = show;
+  sessionStorage.setItem("portalITUser", JSON.stringify(user));
+  //sessionStorage.setItem("showWidget", show);
   if (chatWidget) {
     console.log(`[Custom Integration] Show widget? ${show}`);
     if (show) chatWidget.show();
@@ -182,7 +186,7 @@ if (!loginForm) {
       console.log(
         `[Custom Integration] User id: ${user.id}, Resposta do widget update: ${JSON.stringify(response)}`,
       );
-      setShowWidget(show);
+      setShowWidget(!!user.show);
     });
   }
 
