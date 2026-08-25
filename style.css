@@ -325,6 +325,21 @@ input:focus {
   background: #ffcbcb7e;
 }
 
+.contact-btn {
+  background: #d8f4fd;
+  border: 1px solid var(--border);
+  padding: 9px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 600;
+}
+
+.contact-btn:hover {
+  background: #d8f4fd6a;
+  transform: translateY(1px);
+}
+
 .app-layout {
   display: flex;
   min-height: calc(100vh - 72px);
