@@ -222,11 +222,13 @@ if (!loginForm) {
 
     console.log(`[Custom Integration] update widget for user ${user.id}`);
     const custom_chat_fields = {
-      userId: user.id,
-      userName: user.name,
-      userEmail: user.email,
-      userPhone: user.phone,
-      userLanguage: user.language,
+      custom_chat_fields: {
+        userId: user.id,
+        userName: user.name,
+        userEmail: user.email,
+        userPhone: user.phone,
+        userLanguage: user.language,
+      },
     };
     //const data = `{"custom_chat_fields": {"customerName": "${user.name}", "customerEmail": "${user.email}", "customerId": "${user.id}"}}`;
     const data = JSON.stringify(custom_chat_fields);
