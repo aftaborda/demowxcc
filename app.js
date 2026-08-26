@@ -156,6 +156,8 @@ function displayUser() {
 
   const userIdElements = document.querySelectorAll("#userIdDisplay");
 
+  const userLanguage = document.querySelectorAll("#userLanguage");
+
   const welcomeName = document.getElementById("welcomeName");
 
   userNameElements.forEach(function (element) {
@@ -164,6 +166,10 @@ function displayUser() {
 
   userIdElements.forEach(function (element) {
     element.textContent = "ID: " + user.id;
+  });
+
+  userLanguage.forEach(function (element) {
+    element.textContent = "Language: " + user.language;
   });
 
   if (welcomeName) {
