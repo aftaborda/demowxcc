@@ -79,7 +79,6 @@ const users = {
   },
 };
 
-
 const loginForm = document.getElementById("loginForm");
 
 if (loginForm) {
@@ -205,6 +204,7 @@ if (!loginForm) {
       clearInterval(checkWidget);
       console.log("[Custom Integration] Webex Widget detetado com sucesso!");
       chatWidget = window.imichatwidget;
+      setShowWidget(getShowWidget());
       initializeChatListeners();
     } else if (attempts >= maxAttempts) {
       clearInterval(checkWidget);
@@ -237,7 +237,7 @@ if (!loginForm) {
       console.log(
         `[Custom Integration] User id: ${user.id}, Resposta do widget update: ${JSON.stringify(response)}`,
       );
-      setShowWidget(!!user.show);
+      // setShowWidget(!!user.show);
     });
   }
 
