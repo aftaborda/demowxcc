@@ -31,6 +31,18 @@ a {
   text-decoration: none;
 }
 
+.pt-PT {
+  background-image: url("https://flagcdn.com/40x30/pt.png");
+}
+
+.es-ES {
+  background-image: url("https://flagcdn.com/40x30/es.png");
+}
+
+.en-Gb {
+  background-image: url("https://flagcdn.com/40x30/gb.png");
+}
+
 /* LOGIN */
 
 .login-page {

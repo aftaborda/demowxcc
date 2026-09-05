@@ -122,6 +122,25 @@ function loadUser() {
     return null;
   }
 
+  const user = JSON.parse(storedUser);
+
+  const countryFlag = document.getElementById("country-flag");
+  if (countryFlag) {
+    switch (user.language) {
+      case "pt-PT":
+        countryFlag.src = "https://flagcdn.com/32x24/pt.png";
+        break;
+
+      case "es-ES":
+        countryFlag.src = "https://flagcdn.com/32x24/es.png";
+        break;
+
+      default:
+        countryFlag.src = "https://flagcdn.com/32x24/gb.png";
+        break;
+    }
+  }
+
   return JSON.parse(storedUser);
 }
 
