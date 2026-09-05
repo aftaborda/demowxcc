@@ -2,80 +2,80 @@ let chatWidget = null;
 const users = {
   1000: {
     id: "1000",
-    name: "Joaquim Santos",
-    email: "joaquim.santos@mail.local",
-    phone: "+351900111222",
-    language: "pt-PT",
+    name: "James Smith",
+    email: "james.s@mail.local",
+    phone: "+351910555444",
+    language: "en-GB",
   },
   1001: {
     id: "1001",
-    name: "Genoveva Pascoal",
-    email: "genoveva.p@mail.local",
-    phone: "+351966111333",
-    language: "pt-PT",
+    name: "John Taylor",
+    email: "john.t@mail.local",
+    phone: "+351220777888",
+    language: "en-GB",
   },
   1002: {
     id: "1002",
-    name: "Hermenegildo Balsemão",
-    email: "hermenegildo.b@mail.local",
-    phone: "+351910001122",
-    language: "pt-PT",
+    name: "Mary Williams",
+    email: "mary.w@mail.local",
+    phone: "+351922888999",
+    language: "en-GB",
   },
   1003: {
     id: "1003",
+    name: "Sarah Brown",
+    email: "sarah.b@mail.local",
+    phone: "+351933777666",
+    language: "en-GB",
+  },
+  1004: {
+    id: "1004",
+    name: "Carmen González",
+    email: "carmen.g@mail.local",
+    phone: "+351210444555",
+    language: "es-ES",
+  },
+  1005: {
+    id: "1005",
+    name: "Manuel Sánchez",
+    email: "manuel.s@mail.local",
+    phone: "+351922666777",
+    language: "es-ES",
+  },
+  1006: {
+    id: "1006",
+    name: "María Rodríguez",
+    email: "maria.r@mail.local",
+    phone: "+351933222111",
+    language: "es-ES",
+  },
+  1007: {
+    id: "1007",
     name: "Teotónio Pires-Veloso",
     email: "teotonio.pv@mail.local",
     phone: "+351966000111",
     language: "pt-PT",
   },
-  1004: {
-    id: "1004",
-    name: "Eulália Quaresma",
-    email: "eulalia.q@mail.local",
-    phone: "+351910555444",
-    language: "en-GB",
-  },
-  1005: {
-    id: "1005",
-    name: "Zulmira Labareda",
-    email: "zulmira.l@mail.local",
-    phone: "+351220777888",
-    language: "en-GB",
-  },
-  1006: {
-    id: "1006",
-    name: "Floripes Incarnação",
-    email: "floripes.i@mail.local",
-    phone: "+351922888999",
-    language: "en-GB",
-  },
-  1007: {
-    id: "1007",
-    name: "Custódio Melancia",
-    email: "custodio.m@mail.local",
-    phone: "+351933777666",
-    language: "en-GB",
-  },
   1008: {
     id: "1008",
-    name: "Anacleto Riba-Tua",
-    email: "anacleto.r@mail.local",
-    phone: "+351210444555",
-    language: "es-ES",
+    name: "Joaquim Santos",
+    email: "joaquim.santos@mail.local",
+    phone: "+351900111222",
+    language: "pt-PT",
   },
   1009: {
     id: "1009",
-    name: "Olegário Boavida",
-    email: "olegario.b@mail.local",
-    phone: "+351922666777",
-    language: "es-ES",
+    name: "Genoveva Pascoal",
+    email: "genoveva.p@mail.local",
+    phone: "+351966111333",
+    language: "pt-PT",
   },
   1010: {
     id: "1010",
-    name: "Sidónia Castanheira",
-    email: "sidonia.c@mail.local",
-    phone: "+351933222111",
-    language: "es-ES",
+    name: "Hermenegildo Balsemão",
+    email: "hermenegildo.b@mail.local",
+    phone: "+351910001122",
+    language: "pt-PT",
   },
 };
 
@@ -216,11 +216,16 @@ if (!loginForm) {
 
   function updateChatWidget() {
     const user = loadUser();
-    const show = getShowWidget();
 
     if (!user) return;
 
-    console.log(`[Custom Integration] update widget for user ${user.id}`);
+    const page = window.location.pathname;
+
+    const isBot = page == "systems.html" ? true : false;
+
+    console.log(
+      `[Custom Integration] update widget for user ${user.id} in page ${page} with isBot = ${isBot}`,
+    );
     const custom_chat_fields = {
       custom_chat_fields: {
         userId: user.id,
@@ -228,16 +233,15 @@ if (!loginForm) {
         userEmail: user.email,
         userPhone: user.phone,
         userLanguage: user.language,
+        isBot,
       },
     };
-    //const data = `{"custom_chat_fields": {"customerName": "${user.name}", "customerEmail": "${user.email}", "customerId": "${user.id}"}}`;
     const data = JSON.stringify(custom_chat_fields);
     console.log(data);
     window.imichatwidget.update(data, function (response) {
       console.log(
         `[Custom Integration] User id: ${user.id}, Resposta do widget update: ${JSON.stringify(response)}`,
       );
-      // setShowWidget(!!user.show);
     });
   }
 
