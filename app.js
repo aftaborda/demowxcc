@@ -219,7 +219,7 @@ if (!loginForm) {
 
     if (!user) return;
 
-    const page = window.location.pathname;
+    const page = window.location.pathname.split("/").pop();
 
     const isBot = page == "systems.html" ? true : false;
 
