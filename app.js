@@ -215,6 +215,8 @@ if (!loginForm) {
 (function () {
   let attempts = 0;
   const maxAttempts = 50;
+  const CLIENT_ID = process.env.WEBEX_ACCESS_TOKEN;
+  console.log("id", CLIENT_ID);
 
   const checkWidget = setInterval(() => {
     attempts++;
